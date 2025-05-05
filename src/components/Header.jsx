@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import { Search, Bell, User, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Search, Bell, User } from 'lucide-react';
+import { fetchMovieGenres, fetchTVGenres } from '../api/tmdbApi';
 
 const Header = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
   
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -11,16 +14,38 @@ const Header = ({ onSearch }) => {
   };
   
   return (
-    <header className="fixed top-0 w-full z-50 transition-all px-12 py-4">
+    <header className="fixed top-0 w-full z-50 transition-all px-12 py-4 bg-gradient-to-b from-black via-black/80 to-transparent">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <h1 className="text-red-600 text-3xl font-bold mr-8">MYFLIX</h1>
-          <nav className="hidden md:flex space-x-4">
-            <a href="#" className="text-sm font-medium">Home</a>
-            <a href="#" className="text-sm text-gray-300 hover:text-white">TV Shows</a>
-            <a href="#" className="text-sm text-gray-300 hover:text-white">Movies</a>
-            <a href="#" className="text-sm text-gray-300 hover:text-white">New & Popular</a>
-            <a href="#" className="text-sm text-gray-300 hover:text-white">My List</a>
+          <Link to="/" className="text-red-600 text-3xl font-bold mr-8">MYFLIX</Link>
+          <nav className="hidden md:flex space-x-6">
+            <Link 
+              to="/" 
+              className={`text-sm hover:text-white transition-colors ${location.pathname === '/' ? 'font-medium text-white' : 'text-gray-300'}`}
+            >
+              Home
+            </Link>
+            
+            <Link 
+              to="/tv-shows" 
+              className={`text-sm hover:text-white transition-colors ${location.pathname === '/tv-shows' ? 'font-medium text-white' : 'text-gray-300'}`}
+            >
+              TV Shows
+            </Link>
+            
+            <Link 
+              to="/movies" 
+              className={`text-sm hover:text-white transition-colors ${location.pathname === '/movies' ? 'font-medium text-white' : 'text-gray-300'}`}
+            >
+              Movies
+            </Link>
+            
+            <Link 
+              to="/new-popular" 
+              className={`text-sm hover:text-white transition-colors ${location.pathname === '/new-popular' ? 'font-medium text-white' : 'text-gray-300'}`}
+            >
+              New & Popular
+            </Link>
           </nav>
         </div>
         
@@ -34,11 +59,6 @@ const Header = ({ onSearch }) => {
               onChange={handleSearchChange}
             />
             <Search size={18} className="absolute right-2 top-1.5 text-gray-400" />
-          </div>
-          <Bell size={20} />
-          <div className="flex items-center">
-            <User size={20} className="mr-1" />
-            <ChevronDown size={16} />
           </div>
         </div>
       </div>

@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# NetMovie - Movie & TV Show Streaming Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Netflix-inspired React application that showcases movies and TV shows using the TMDB API. This project demonstrates modern React development techniques including component architecture, API integration, and responsive design.
 
-## Available Scripts
+![NetMovie Screenshot](https://via.placeholder.com/800x450)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Browse movies and TV shows across different categories
+- View trending, popular, and upcoming titles
+- Search for content across the entire database
+- Responsive design for various screen sizes
+- Dynamic content loading from TMDB API
+- Clean and modern UI inspired by popular streaming platforms
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technology Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: Frontend library for building user interfaces
+- **React Router**: For navigation between different pages
+- **TMDB API**: For movie and TV show data
+- **Tailwind CSS**: For styling
+- **Lucide React**: For icons
+- **Modern JavaScript (ES6+)**: Leveraging modern JavaScript features
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+netmovie/
+├── src/
+│   ├── api/
+│   │   └── tmdbApi.js      # API functions for fetching data from TMDB
+│   ├── components/
+│   │   ├── ContentCard.jsx # Card component for individual movies/shows
+│   │   ├── ContentRow.jsx  # Horizontal scrollable row of ContentCards
+│   │   ├── Footer.jsx      # Footer component
+│   │   ├── Header.jsx      # Navigation header with search functionality
+│   │   ├── Hero.jsx        # Featured content showcase
+│   │   └── SearchResults.jsx # Display for search results
+│   ├── constants/
+│   │   └── config.js       # API keys and configuration
+│   ├── pages/
+│   │   ├── HomePage.jsx    # Main landing page
+│   │   ├── MoviesPage.jsx  # Movies catalog page
+│   │   ├── TVShowsPage.jsx # TV shows catalog page
+│   │   ├── NewPopularPage.jsx # New and popular content
+│   │   └── MyListPage.jsx  # User's saved content
+│   ├── utils/
+│   │   └── routes.js       # Route definitions
+│   ├── App.js              # Main application component with routing
+│   ├── index.js            # Application entry point
+│   └── ...
+├── public/
+├── package.json
+└── ...
+```
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/netmovie.git
+cd netmovie
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create a `.env` file in the root directory and add your TMDB API key:
+```
+REACT_APP_TMDB_API_KEY=your_api_key_here
+```
 
-### `npm run eject`
+4. Start the development server:
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Integration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project uses The Movie Database (TMDB) API to fetch movie and TV show data. The API endpoints used include:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Trending content
+- Popular movies and TV shows
+- Top-rated content
+- Upcoming releases
+- Genre listings
+- Search functionality
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+API calls are organized in the `tmdbApi.js` file for clean separation of concerns.
 
-## Learn More
+## Pages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Home**: Landing page featuring a hero banner and content rows
+2. **Movies**: Page dedicated to movie content organized by categories
+3. **TV Shows**: Page dedicated to TV show content organized by categories
+4. **New & Popular**: Shows the latest releases and trending content
+5. **My List**: Displays user's saved content (placeholder for future functionality)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Components
 
-### Code Splitting
+### Header
+Navigation bar with links to different sections and search functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Hero
+Large banner showcasing featured content with title, description, and action buttons.
 
-### Analyzing the Bundle Size
+### ContentRow
+Horizontal scrollable row displaying ContentCards for a specific category.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### ContentCard
+Individual card showing a movie or TV show with hover effects and action buttons.
 
-### Making a Progressive Web App
+### SearchResults
+Grid layout displaying search results with basic information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Footer
+Basic footer with links and copyright information.
 
-### Advanced Configuration
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- User authentication
+- Persistent "My List" functionality
+- Movie and TV show detail pages
+- Video playback integration
+- Personalized recommendations
+- Mobile app version
 
-### Deployment
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [The Movie Database (TMDB)](https://www.themoviedb.org/) for the API
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Lucide React](https://lucide.dev/) for icons
+- [React Router](https://reactrouter.com/) for navigation
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License

@@ -1,4 +1,3 @@
-import { Play, Plus, ThumbsUp } from 'lucide-react';
 import { IMAGE_BASE_URL } from '../constants/config';
 
 const ContentCard = ({ item }) => {
@@ -15,17 +14,6 @@ const ContentCard = ({ item }) => {
         <h3 className="text-white font-medium text-sm">
           {item.title || item.name}
         </h3>
-        <div className="flex items-center space-x-2 mt-2">
-          <button className="bg-white rounded-full p-1">
-            <Play size={16} className="text-black" />
-          </button>
-          <button className="bg-gray-800 bg-opacity-60 rounded-full p-1">
-            <Plus size={16} className="text-white" />
-          </button>
-          <button className="bg-gray-800 bg-opacity-60 rounded-full p-1">
-            <ThumbsUp size={16} className="text-white" />
-          </button>
-        </div>
       </div>
     </div>
   );
